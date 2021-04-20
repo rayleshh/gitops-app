@@ -62,7 +62,6 @@ spec:
 
     stage('Deploy to Prod') {
       steps {
-        input message:'Approve deployment?'
         container('tools') {
           dir("gitops-infra") {
             sh "cd ./prod && kustomize edit set image rayleshh/argocd-app:${env.GIT_COMMIT}"
