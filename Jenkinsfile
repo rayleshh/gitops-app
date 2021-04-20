@@ -49,7 +49,7 @@ spec:
       }
       steps {
         container('tools') {
-          sh "git clone https://${GIT_CREDS_USR}:${GIT_CREDS_PSW}@github.com/rayleshh/gitops-infra.git"
+          sh 'git clone https://${GIT_CREDS_USR}:"${GIT_CREDS_PSW}"@github.com/rayleshh/gitops-infra.git'
           sh "git config --global user.email 'ci@ci.com'"
 
           dir("gitops-infra") {
