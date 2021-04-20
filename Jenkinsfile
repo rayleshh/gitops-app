@@ -52,7 +52,7 @@ spec:
           sh "git clone https://$GIT_CREDS_USR:$GIT_CREDS_PSW@github.com/rayleshh/gitops-infra.git"
           sh "git config --global user.email 'ci@ci.com'"
 
-          dir("argocd-deploy") {
+          dir("gitops-infra") {
             sh "cd ./e2e && kustomize edit set image rayleshh/argocd-app:${env.GIT_COMMIT}"
             sh "git commit -am 'Publish new version' && git push || echo 'no changes'"
           }
@@ -64,7 +64,7 @@ spec:
       steps {
         input message:'Approve deployment?'
         container('tools') {
-          dir("argocd-deploy") {
+          dir("gitops-infra") {
             sh "cd ./prod && kustomize edit set image rayleshh/argocd-app:${env.GIT_COMMIT}"
             sh "git commit -am 'Publish new version' && git push || echo 'no changes'"
           }
