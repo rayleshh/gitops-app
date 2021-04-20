@@ -37,7 +37,7 @@ spec:
       steps {
         container('docker') {
           sh "until docker ps; do sleep 3; done && docker build -t rayleshh/argocd-app:${env.GIT_COMMIT} ."
-          sh "echo '$DOCKERHUB_CREDS_PSW' | docker login -u '$DOCKERHUB_CREDS_USR' --password-stdin"
+          sh "echo '${DOCKERHUB_CREDS_PSW}' | docker login -u '${DOCKERHUB_CREDS_USR}' --password-stdin"
           sh "docker push rayleshh/argocd-app:${env.GIT_COMMIT}"
         }
       }
@@ -49,7 +49,7 @@ spec:
       }
       steps {
         container('tools') {
-          sh "git clone https://$GIT_CREDS_USR:$GIT_CREDS_PSW@github.com/rayleshh/gitops-infra.git"
+          sh "git clone https://${GIT_CREDS_USR}:${GIT_CREDS_PSW}@github.com/rayleshh/gitops-infra.git"
           sh "git config --global user.email 'ci@ci.com'"
 
           dir("gitops-infra") {
