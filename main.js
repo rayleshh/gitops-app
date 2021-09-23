@@ -8,7 +8,7 @@ const logger = createLogger({
   exitOnError: false,
   format: format.json(),
   transports: [
-    new transports.File({ filename: `./logs/app.log` }),
+    new transports.File({ filename: `/var/logs/datadog-app-teste-/app.log` }),
   ],
 });
 
