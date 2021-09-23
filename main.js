@@ -1,3 +1,6 @@
+// Datadog
+const tracer = require('dd-trace').init()
+
 const http = require('http');
 
 // Logger
@@ -13,9 +16,6 @@ const { createLogger, format, transports } = require('winston');
 // });
 
 // module.exports = logger;
-
-// Datadog
-const tracer = require('dd-trace').init()
 
 // APP
 const hostname = '0.0.0.0';
