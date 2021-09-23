@@ -15,9 +15,7 @@ const logger = createLogger({
 module.exports = logger;
 
 // Datadog
-const tracer = require('dd-trace').init({
-  logInjection: true
-});
+const tracer = require('dd-trace').init()
 
 // APP
 const hostname = '0.0.0.0';
