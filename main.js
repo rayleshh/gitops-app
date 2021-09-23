@@ -3,16 +3,16 @@ const http = require('http');
 // Logger
 const { createLogger, format, transports } = require('winston');
 
-const logger = createLogger({
-  level: 'info',
-  exitOnError: false,
-  format: format.json(),
-  transports: [
-    new transports.File({ filename: `/var/log/datadog-app-teste/app.log` }),
-  ],
-});
+// const logger = createLogger({
+//   level: 'info',
+//   exitOnError: false,
+//   format: format.json(),
+//   transports: [
+//     new transports.File({ filename: `/var/log/datadog-app-teste/app.log` }),
+//   ],
+// });
 
-module.exports = logger;
+// module.exports = logger;
 
 // Datadog
 const tracer = require('dd-trace').init()
@@ -32,7 +32,8 @@ const server = http.createServer((_, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   res.end('Hello, Vitao!\n');
-  logger.info('Get API: ' + Math.random() ,{color: 'blue' });
+//   logger.info('Get API: ' + Math.random() ,{color: 'blue' });
+  console.log('Get API: ' + Math.random()');
 });
 
 
