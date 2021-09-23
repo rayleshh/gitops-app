@@ -33,7 +33,7 @@ const server = http.createServer((_, res) => {
   res.setHeader('Content-Type', 'text/plain');
   res.end('Hello, Vitao!\n');
 //   logger.info('Get API: ' + Math.random() ,{color: 'blue' });
-  console.log('Get API: ' + Math.random()');
+  console.log('Get API: ' + Math.random());
 });
 
 
