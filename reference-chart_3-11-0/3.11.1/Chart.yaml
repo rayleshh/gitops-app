@@ -1,3 +1,0 @@
-apiVersion: v1
-name: gitops-app
-version: 3.11.1
